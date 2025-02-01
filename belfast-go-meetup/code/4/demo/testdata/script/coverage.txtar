@@ -1,0 +1,4 @@
+# With an argument, print hello Gopher message
+exec demo Kate
+stdout 'Hello Gopher, Kate'
+! stderr .

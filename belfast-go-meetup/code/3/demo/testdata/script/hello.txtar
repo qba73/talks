@@ -1,0 +1,2 @@
+exec demo
+stdout 'Hello Belfast Gophers\n'
