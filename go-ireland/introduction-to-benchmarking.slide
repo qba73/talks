@@ -1,0 +1,212 @@
+# Simple Steps to Start Benchmarking Your Go Code
+Go Ireland Meetup
+6 Feb 2025
+
+Jakub Jarosz
+jakub@jarosz.dev
+https://jarosz.dev
+@qba73
+
+## Agenda
+
+- Testing vs Benchmarking
+- Writing benchmarks
+- Running benchmarks
+- Interpreting results
+
+.image images/12.png _ 350
+
+## Why?
+
+.image images/single-race.jpg _ 700
+
+## Testing vs Benchmarking
+
+Test
+
+.code code/benchmarks/bench_test.go /STARTEST OMIT/,/ENDTEST OMIT/ HL11
+
+Benchmark
+
+.code code/benchmarks/bench_test.go /START OMIT/,/END OMIT/ HL12
+
+## Writing Benchmarks
+
+.code code/benchmarks/bench_test.go /START OMIT/,/END OMIT/ HL13 
+
+## Writing Table Benchmarks
+
+.code code/benchmarks/bench_test.go /STARTTABLE OMIT/,/ENDTABLE OMIT/ 
+
+## Running Benchmarks
+
+bench
+
+```
+go test -run none -bench
+```
+
+
+## Running Benchmarks
+
+bench
+
+```
+go test -run none -bench
+```
+
+```
+
+BenchmarkFoo-8   	19146404	        62.46 ns/op
+
+```
+
+## Running Benchmarks
+
+benchmem
+
+```
+go test -run none -bench . -benchmem
+```
+
+
+## Running Benchmarks
+
+benchmem
+
+```
+go test -run none -bench . -benchmem
+```
+
+```
+
+BenchmarkFoo-8   	18934608	        63.82 ns/op	      80 B/op	       3 allocs/op
+
+```
+
+## Running Benchmarks
+
+cpu
+
+```
+go test -run none -bench . -benchmem -cpu 2
+```
+
+## Running Benchmarks
+
+cpu
+
+```
+go test -run none -bench . -benchmem -cpu 2
+```
+
+```
+
+BenchmarkFoo-2   	19136030	        62.74 ns/op	      80 B/op	       3 allocs/op
+
+```
+
+## ShareWith...
+
+.image images/56.png _ 300
+
+## ShareWith v1
+
+.code code/hello/1/hello.go /START OMIT/,/END OMIT/
+
+## ShareWith v2
+
+.code code/hello/2/hello.go /START OMIT/,/END OMIT/
+
+## ShareWith v3
+
+.code code/hello/3/hello_test.go /START OMIT/,/END OMIT/
+
+## ShareWith
+
+run benchmark
+
+```shell
+go test -run none -bench . -benchmem
+```
+
+report
+
+```shell
+
+BenchmarkShareWith-8   	18975690	        62.86 ns/op	      80 B/op	       3 allocs/op
+
+```
+
+## Isogram
+
+An isogram (also known as a "non-pattern word")
+is a word or phrase without a repeating letter,
+however spaces and hyphens are allowed to
+appear multiple times.
+
+.image images/15-isogram.png _ 300
+
+
+## Isogram v1
+
+.code code/isogram/1/isogram.go /START OMIT/,/END OMIT/
+
+
+## Isogram v2
+
+.code code/isogram/2/isogram.go /START OMIT/,/END OMIT/
+
+
+## Isogram v3
+
+.code code/isogram/3/isogram.go /START OMIT/,/END OMIT/
+
+
+## Isogram v4
+
+.code code/isogram/4/isogram.go /START OMIT/,/END OMIT/
+
+
+## Scrabble
+
+.image images/scrabble.png _ 400
+
+
+## Scrabble v1
+
+.code code/scrabble/2/scrabble.go /START OMIT/,/END OMIT/
+
+
+## Scrabble v2
+
+.code code/scrabble/3/scrabble.go /START OMIT/,/END OMIT/
+
+
+## Scrabble v3
+
+.code code/scrabble/4/scrabble.go /START OMIT/,/END OMIT/
+
+
+## Comparing Benchmarks
+
+.image images/double-race.jpg _ 350
+
+
+## Cavetas
+
+Compiler Optimizations
+
+.code code/isogram/5/isogram_test.go /STARTISO OMIT/,/ENDISO OMIT/
+
+## Common Mistakes
+
+- Forgetting loop
+- N value
+
+
+## Upcoming book
+
+.image images/cover.png _ 300
+
+[Get the book when it's out](https://jarosz.dev/article/performance-tuning-and-benchmarking/).
