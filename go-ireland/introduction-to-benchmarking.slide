@@ -1,4 +1,4 @@
-# Simple Steps to Start Benchmarking Your Go Code
+# Benchmarking: First Steps
 Go Ireland Meetup
 6 Feb 2025
 
@@ -13,8 +13,9 @@ https://jarosz.dev
 - Writing benchmarks
 - Running benchmarks
 - Interpreting results
+- Gaming Time!
 
-.image images/12.png _ 350
+.image images/12.png _ 300
 
 ## Why?
 
@@ -30,21 +31,10 @@ Benchmark
 
 .code code/benchmarks/bench_test.go /START OMIT/,/END OMIT/ HL12
 
-## Writing Benchmarks
 
-.code code/benchmarks/bench_test.go /START OMIT/,/END OMIT/ HL13 
-
-## Writing Table Benchmarks
+## Table Benchmarks
 
 .code code/benchmarks/bench_test.go /STARTTABLE OMIT/,/ENDTABLE OMIT/ 
-
-## Running Benchmarks
-
-bench
-
-```
-go test -run none -bench
-```
 
 
 ## Running Benchmarks
@@ -59,14 +49,6 @@ go test -run none -bench
 
 BenchmarkFoo-8   	19146404	        62.46 ns/op
 
-```
-
-## Running Benchmarks
-
-benchmem
-
-```
-go test -run none -bench . -benchmem
 ```
 
 
@@ -84,13 +66,6 @@ BenchmarkFoo-8   	18934608	        63.82 ns/op	      80 B/op	       3 allocs/op
 
 ```
 
-## Running Benchmarks
-
-cpu
-
-```
-go test -run none -bench . -benchmem -cpu 2
-```
 
 ## Running Benchmarks
 
@@ -118,11 +93,11 @@ BenchmarkFoo-2   	19136030	        62.74 ns/op	      80 B/op	       3 allocs/op
 
 .code code/hello/2/hello.go /START OMIT/,/END OMIT/
 
-## ShareWith v3
+## ShareWith Benchmark
 
 .code code/hello/3/hello_test.go /START OMIT/,/END OMIT/
 
-## ShareWith
+## ShareWith Benchmark
 
 run benchmark
 
@@ -138,7 +113,7 @@ BenchmarkShareWith-8   	18975690	        62.86 ns/op	      80 B/op	       3 allo
 
 ```
 
-## Isogram
+## Let's play: Isogram
 
 An isogram (also known as a "non-pattern word")
 is a word or phrase without a repeating letter,
@@ -168,7 +143,7 @@ appear multiple times.
 .code code/isogram/4/isogram.go /START OMIT/,/END OMIT/
 
 
-## Scrabble
+## Let's play: Scrabble
 
 .image images/scrabble.png _ 400
 
@@ -193,16 +168,15 @@ appear multiple times.
 .image images/double-race.jpg _ 350
 
 
-## Cavetas
-
-Compiler Optimizations
+## Preventing Compiler Optimizations
 
 .code code/isogram/5/isogram_test.go /STARTISO OMIT/,/ENDISO OMIT/
 
-## Common Mistakes
+## There is much more...
 
-- Forgetting loop
+- Managing benchmark loop
 - N value
+- Managing benchmark timer
 
 
 ## Upcoming book
