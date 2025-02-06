@@ -17,9 +17,24 @@ https://jarosz.dev
 
 .image images/12.png _ 300
 
-## Why?
+## Design Principles
 
-.image images/single-race.jpg _ 700
+- Make it correct
+- Make it readable
+- Make it easy to understand
+- ...
+- Make it **fast** (enough)
+
+.image images/bill.png _ 200
+
+## Benchmarking
+
+- Speed ?
+- Petrol ?
+- Loops ?
+- Why ?
+
+.image images/single-race.jpg _ 400
 
 ## Testing vs Benchmarking
 
@@ -32,7 +47,7 @@ Benchmark
 .code code/benchmarks/bench_test.go /START OMIT/,/END OMIT/ HL12
 
 
-## Table Benchmarks
+## Benchmarks
 
 .code code/benchmarks/bench_test.go /STARTTABLE OMIT/,/ENDTABLE OMIT/ 
 
@@ -72,14 +87,37 @@ BenchmarkFoo-8   	18934608	        63.82 ns/op	      80 B/op	       3 allocs/op
 cpu
 
 ```
-go test -run none -bench . -benchmem -cpu 2
+go test -run none -bench . -cpu 2,4,6,8
 ```
 
 ```
 
-BenchmarkFoo-2   	19136030	        62.74 ns/op	      80 B/op	       3 allocs/op
+BenchmarkIsIsogram-2   	  412042	      2895 ns/op
+BenchmarkIsIsogram-4   	  406560	      2905 ns/op
+BenchmarkIsIsogram-6   	  402758	      2903 ns/op
+BenchmarkIsIsogram-8   	  402938	      2904 ns/op
 
 ```
+
+
+## Running Benchmarks
+
+benchtime
+
+```
+go test -run none -bench . -benchtime 2s -benchmem -cpu 2,4,6,8
+```
+
+```
+
+BenchmarkIsIsogram-2   	  833965	      2899 ns/op	    1426 B/op	      16 allocs/op
+BenchmarkIsIsogram-4   	  813745	      2894 ns/op	    1426 B/op	      16 allocs/op
+BenchmarkIsIsogram-6   	  806353	      2925 ns/op	    1426 B/op	      16 allocs/op
+BenchmarkIsIsogram-8   	  804255	      2928 ns/op	    1426 B/op	      16 allocs/op
+
+```
+
+
 
 ## ShareWith...
 
@@ -112,6 +150,9 @@ report
 BenchmarkShareWith-8   	18975690	        62.86 ns/op	      80 B/op	       3 allocs/op
 
 ```
+
+DEMO: 
+
 
 ## Let's play: Isogram
 
@@ -163,9 +204,14 @@ appear multiple times.
 .code code/scrabble/4/scrabble.go /START OMIT/,/END OMIT/
 
 
-## Comparing Benchmarks
+## Comparing Benchmarks - Benchstat
 
 .image images/double-race.jpg _ 350
+
+
+## Comparing Benchmarks - Benchstat
+
+
 
 
 ## Preventing Compiler Optimizations
@@ -174,6 +220,7 @@ appear multiple times.
 
 ## There is much more...
 
+- Quiet environment
 - Managing benchmark loop
 - N value
 - Managing benchmark timer

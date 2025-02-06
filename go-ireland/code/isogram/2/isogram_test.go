@@ -95,10 +95,15 @@ func TestIsIsogram(t *testing.T) {
 	}
 }
 
+var Res bool
+
 func BenchmarkIsIsogram(b *testing.B) {
+	var got bool
 	for i := 0; i < b.N; i++ {
 		for _, tc := range tt {
-			isogram.IsIsogram(tc.input)
+			got = isogram.IsIsogram(tc.input)
 		}
 	}
+	Res = got
 }
+
