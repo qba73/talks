@@ -27,6 +27,18 @@ https://jarosz.dev
 
 .image images/bill.png _ 200
 
+
+## Go Optimization Principle
+
+*Optimizing Golang code for performance is almost certainly a waste of your time, for several reasons:*
+
+- *Performance doesn't matter*
+- *Go is fast*
+- *Readability beats speed*
+
+[J. Arundel](https://bitfieldconsulting.com/posts/slower)
+
+
 ## Benchmarking
 
 - Speed ?
@@ -54,10 +66,10 @@ Benchmark
 
 ## Running Benchmarks
 
-bench
+- bench
 
 ```
-go test -run none -bench
+go test -run none -bench .
 ```
 
 ```
@@ -69,7 +81,7 @@ BenchmarkFoo-8   	19146404	        62.46 ns/op
 
 ## Running Benchmarks
 
-benchmem
+- benchmem
 
 ```
 go test -run none -bench . -benchmem
@@ -84,7 +96,7 @@ BenchmarkFoo-8   	18934608	        63.82 ns/op	      80 B/op	       3 allocs/op
 
 ## Running Benchmarks
 
-cpu
+- cpu
 
 ```
 go test -run none -bench . -cpu 2,4,6,8
@@ -102,7 +114,7 @@ BenchmarkIsIsogram-8   	  402938	      2904 ns/op
 
 ## Running Benchmarks
 
-benchtime
+- benchtime
 
 ```
 go test -run none -bench . -benchtime 2s -benchmem -cpu 2,4,6,8
@@ -116,7 +128,6 @@ BenchmarkIsIsogram-6   	  806353	      2925 ns/op	    1426 B/op	      16 allocs/
 BenchmarkIsIsogram-8   	  804255	      2928 ns/op	    1426 B/op	      16 allocs/op
 
 ```
-
 
 
 ## ShareWith...
@@ -151,8 +162,7 @@ BenchmarkShareWith-8   	18975690	        62.86 ns/op	      80 B/op	       3 allo
 
 ```
 
-DEMO: 
-
+Demo
 
 ## Let's play: Isogram
 
@@ -183,6 +193,7 @@ appear multiple times.
 
 .code code/isogram/4/isogram.go /START OMIT/,/END OMIT/
 
+DEMO
 
 ## Let's play: Scrabble
 
@@ -211,6 +222,27 @@ appear multiple times.
 
 ## Comparing Benchmarks - Benchstat
 
+Running benchmarks
+```
+go test -run none -bench . -benchmem -count=10 > ../v1.txt
+go test -run none -bench . -benchmem -count=10 > ../v2.txt
+```
+Running **benchstat**
+```
+benchstat v1.txt v2.txt
+pkg: github.com/qba73/scrabble
+
+        │    v1.txt    │               v2.txt                │
+        │    sec/op    │   sec/op      vs base               │
+Score-8   3029.5n ± 1%   298.4n ± 1%  -90.15% (p=0.000 n=10)
+
+
+        │   v1.txt     │               v2.txt                │
+        │  allocs/op   │ allocs/op   vs base                 │
+Score-8   63.000 ± 0%   9.000 ± 0%  -85.71% (p=0.000 n=10)
+```
+
+[Benchstat](https://pkg.go.dev/golang.org/x/perf/cmd/benchstat)
 
 
 
@@ -222,8 +254,8 @@ appear multiple times.
 
 - Quiet environment
 - Managing benchmark loop
-- N value
 - Managing benchmark timer
+- Improving benchmark accuracy
 
 
 ## Upcoming book

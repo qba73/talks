@@ -1,0 +1,16 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/qba73/scrabble
+cpu: Apple M3
+BenchmarkScore-8   	 3832855	       299.5 ns/op	     104 B/op	       9 allocs/op
+BenchmarkScore-8   	 4026122	       298.1 ns/op	     104 B/op	       9 allocs/op
+BenchmarkScore-8   	 4088474	       295.1 ns/op	     104 B/op	       9 allocs/op
+BenchmarkScore-8   	 4068825	       295.8 ns/op	     104 B/op	       9 allocs/op
+BenchmarkScore-8   	 4072161	       299.4 ns/op	     104 B/op	       9 allocs/op
+BenchmarkScore-8   	 4028154	       298.6 ns/op	     104 B/op	       9 allocs/op
+BenchmarkScore-8   	 4071612	       298.2 ns/op	     104 B/op	       9 allocs/op
+BenchmarkScore-8   	 4042129	       295.2 ns/op	     104 B/op	       9 allocs/op
+BenchmarkScore-8   	 4043018	       298.6 ns/op	     104 B/op	       9 allocs/op
+BenchmarkScore-8   	 4040186	       299.3 ns/op	     104 B/op	       9 allocs/op
+PASS
+ok  	github.com/qba73/scrabble	15.215s

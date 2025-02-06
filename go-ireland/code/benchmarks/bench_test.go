@@ -33,7 +33,7 @@ var tt = []string{"uno", "due", "tre"}
 func BenchmarkBar(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		for _, tc := range tt {
-			Bar(tc)
+			Bar(tc) // HL
 		}
 	}
 }
